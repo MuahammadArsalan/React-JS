@@ -51,7 +51,25 @@ todoVal.current.value = ''
 }
 
 
-let deleteTodo = ()=>{
+let deleteTodo = (index)=>{
+
+// console.log('delete called',index);
+
+todo.splice(index,1);
+setTodo([...todo]);
+console.log(todo);
+
+
+}
+
+let editTodo = (index)=>{
+  
+  // console.log('edit called',index);
+  let updatedVal = prompt('Enter Updated Value')
+  todo.splice(index,1,updatedVal);
+setTodo([...todo])
+console.log(todo);
+
 
 
 }
@@ -61,11 +79,11 @@ let deleteTodo = ()=>{
 return(
 
 <>
-
+<h1 className="text-center">Todo App</h1>
 <form>
 
-<input type="text" placeholder='Enter Todo' ref={todoVal} required />
-<button onClick={addTodo}>Click</button>
+<input type="text" placeholder='Enter Todo' className='w-50 text-center' ref={todoVal} required /><br/><br/>
+<button className='btn btn-success p-3 w-40 text-center' onClick={addTodo}>Click</button>
 </form>
 <ul>
 {todo.map((item,index)=>{
@@ -73,8 +91,8 @@ return(
 return(
   <>
   
-<li>{item} <button onClick={()=>{}}>delete</button><button>Edit</button></li>
-  
+<li>{item}</li>
+<button onClick={()=>{deleteTodo(index)}}>delete</button><button onClick={()=>{editTodo(index)}}>Edit</button>
   
   
   </>
@@ -110,36 +128,5 @@ return(
 
 
 
-
-
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
 
 export default App
