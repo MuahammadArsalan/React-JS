@@ -131,7 +131,7 @@ import './App.css';
 // <h1 className="text-center">Todo App</h1>
 // <form>
 
-// <input type="text" placeholder='Enter Todo' className='w-50 text-center' ref={todoVal} required /><br/><br/>
+// <input type="text" placeholder='Enter Todo' className='w-50 text-center'  id='todo-input' ref={todoVal} required /><br/><br/>
 // <button className='btn btn-success p-3 w-40 text-center' onClick={addTodo}>Click</button>
 // </form>
 // <ul>
@@ -206,6 +206,7 @@ setTodo([...todo])
 // Edit todo ka function h 
 
 let editTodo=(index)=>{
+
   console.log(index);
   let updateValue = prompt('Enter the updated Value of todo...') 
   todo.splice(index,1,updateValue)
@@ -214,11 +215,13 @@ let editTodo=(index)=>{
 }
 
 return(
-<>
+<> 
+<h1 className='text-center mt-2'>Todo App</h1>
+
 <form>
 
-<input type="text" placeholder='Enter todo' ref={todoValue} required /><br />
-<button onClick={addTodo}>Add todo</button>
+<input type="text" placeholder='Enter todo' ref={todoValue} className='ml-4'  id='todo-input'  required/><br />
+<button onClick={addTodo} id='addTodo-btn' className='btn btn-primary mt-3 add-btn'>Add todo</button>
 </form>
 
 <ul>
@@ -226,14 +229,19 @@ return(
 
 
 return(
-  <>
-  <li>{item}<button onClick={()=>{deleteTodo(index)}}>Delete</button><button onClick={()=>{editTodo(index)}}>Edit</button></li>
+<>
+
+<li className='mt-2'>{item}
+  
+<button  className='btn btn-danger' onClick={()=>{deleteTodo(index)}} id='delete'>Delete</button>   <button id='edit' className='btn btn-success' onClick={()=>{editTodo(index)}}>Edit</button>
+  
+</li>
+
+
+
+</>
   
   
-  
-  
-  
-  </>
   )
   
   })}
