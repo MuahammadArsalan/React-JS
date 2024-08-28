@@ -5,7 +5,7 @@ import "./custom.css"
 function Card(props){
 
 function buy(){
-    alert('This functionality bring Soon....')
+    alert('This functionality Coming Soon....')
 }
 
 
