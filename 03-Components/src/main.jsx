@@ -8,14 +8,6 @@ import Card from './Components/Card.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App/>
-    <Navbar/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
+    
     </StrictMode>,
 )
