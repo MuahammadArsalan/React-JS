@@ -9,6 +9,11 @@
     padding: 0;
     box-sizing:border-box ;
 }
+.navbar{
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+}
 
 #nav-text{
     font-family: "Poppins", sans-serif;

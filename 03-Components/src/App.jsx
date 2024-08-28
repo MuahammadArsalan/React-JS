@@ -10,8 +10,8 @@ return(
 
 <Navbar/>
 
-<h1 id="h1" className="mt-2 text-center text-6xl">Shoes</h1>
-<div className="flex flex-wrap justify-center gap-4 mt-[40px]">
+<h1 id="h1" className="mt-[80px] text-center text-6xl">Shoes</h1>
+<div className="flex flex-wrap justify-center gap-4 mt-[30px]">
 
 <Card src="https://images.pexels.com/photos/267301/pexels-photo-267301.jpeg?cs=srgb&dl=pexels-pixabay-267301.jpg&fm=jpg" description="These sleek and stylish shoes are designed for both comfort and fashion. Crafted with high-quality materials, they provide excellent support and durabilit."/>
 
