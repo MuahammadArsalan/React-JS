@@ -90,53 +90,139 @@ import axios from "axios"
 
 
 
-function App(){
-  // let [data,setData] = useState([])
-  let [data,setData] = useState('')
+// function App(){
+//   // let [data,setData] = useState([])
+//   let [data,setData] = useState('')
   
+// //   async function getUser(){
+
+// //     let data = await axios('https://jsonplaceholder.typicode.com/users');
+    
+// //     console.log(data.data)
+// // {data.data.map((item,index)=>{
+// // console.log(item.name);
+// // })}
+
+    
+// // }
+// // getUser()
+
+
+// useEffect(()=>{
+
 //   async function getUser(){
 
-//     let data = await axios('https://jsonplaceholder.typicode.com/users');
+//     let getData =await axios('https://jsonplaceholder.typicode.com/users');
+//     // console.log(getData.data);
+//     setData(getData.data);
+//     }
+//     getUser()
     
-//     console.log(data.data)
-// {data.data.map((item,index)=>{
-// console.log(item.name);
-// })}
 
-    
+// },[])
+
+
+
+//   return(
+//     <>
+
+//     <h1>Hello </h1>
+
+// { data ? data.map((item)=>{
+//   return <div>
+//     <ul><li>{item.name}</li></ul>
+//   </div>
+// }): <h1>Loading......</h1>
+
 // }
-// getUser()
+
+
+//     </>
+//   )
+// }
+
+
+
+
+function App(){
+let [data,setData] = useState() 
 
 
 useEffect(()=>{
 
-  async function getUser(){
 
-    let getData =await axios('https://jsonplaceholder.typicode.com/users');
+  async function ApiCalling(){
+
+    try {
+      let getData =await axios('https://jsonplaceholder.typicode.com/users')
+    
     // console.log(getData.data);
     setData(getData.data);
-    }
-    getUser()
     
-
-},[])
-
-
-
-  return(
-    <>
-    <h1>Hello </h1>
-{/* {console.log(data.map((it)=>{console.log(it);
-}))} */}
-    {data.map((item)=>{
-      console.log(item);
+    } catch (error) {
+     console.log(error);
       
-    })}
+    }
+  }
+  
+  ApiCalling()
 
 
-    </>
-  )
+
+},[]);
+
+
+
+
+return(
+  <>
+<h1>Hello Users</h1>
+ {data ? data.map((item)=>{
+  return  <div key={item.id}>
+  <ul>
+    <li>{item.name}{' ' } <span>||</span> {''}{ item.email}</li>
+  </ul>
+</div>
+ }): <h1>Loading.......</h1>
+ 
+ }
+  
+  
+  
+  </>
+)
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
