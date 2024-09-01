@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react" 
 
 import CustomBtn from "./Components/CustomBtn.jsx"
+import axios from "axios"
 
 
 // function App (){
@@ -41,55 +42,101 @@ import CustomBtn from "./Components/CustomBtn.jsx"
 
 
 
-function App (){
+// function App (){
   
-  let [add,setAdd] = useState(0);
+//   let [add,setAdd] = useState(0);
   
-  let [subtract,setSubtract] = useState(10);
+//   let [subtract,setSubtract] = useState(10);
   
-  useEffect(()=>{
-    console.log('mounted');
+//   useEffect(()=>{
+//     console.log('mounted');
     
-  },[]);
+//   },[]);
   
   
-  let addFunc = ()=>{
+//   let addFunc = ()=>{
     
-    setAdd(add + 1);
+//     setAdd(add + 1);
 
-  }
-let lessFunc = ()=>{
+//   }
+// let lessFunc = ()=>{
   
-  if(subtract > 0){
-    setSubtract(subtract - 1)
-  }else if(subtract === 0){
-alert(`Number line ended don't touch this button again !!`)
-  }else{
-    return
-  }
+//   if(subtract > 0){
+//     setSubtract(subtract - 1)
+//   }else if(subtract === 0){
+// alert(`Number line ended don't touch this button again !!`)
+//   }else{
+//     return
+//   }
     
-  } 
+//   } 
   
 
-return(
-  <>
+// return(
+//   <>
 
-<h1>Hello Counter</h1>
-<button onClick={addFunc}>Add {add}</button>
-<button onClick={lessFunc}>Less {subtract}</button>
+// <h1>Hello Counter</h1>
+// <button onClick={addFunc}>Add {add}</button>
+// <button onClick={lessFunc}>Less {subtract}</button>
 
-  </>
-)
+//   </>
+// )
 
+// }
+
+
+
+// API Integration Using React JS
+
+
+
+function App(){
+  // let [data,setData] = useState([])
+  let [data,setData] = useState('')
+  
+//   async function getUser(){
+
+//     let data = await axios('https://jsonplaceholder.typicode.com/users');
+    
+//     console.log(data.data)
+// {data.data.map((item,index)=>{
+// console.log(item.name);
+// })}
+
+    
+// }
+// getUser()
+
+
+useEffect(()=>{
+
+  async function getUser(){
+
+    let getData =await axios('https://jsonplaceholder.typicode.com/users');
+    // console.log(getData.data);
+    setData(getData.data);
+    }
+    getUser()
+    
+
+},[])
+
+
+
+  return(
+    <>
+    <h1>Hello </h1>
+{/* {console.log(data.map((it)=>{console.log(it);
+}))} */}
+    {data.map((item)=>{
+      console.log(item);
+      
+    })}
+
+
+    </>
+  )
 }
-
-
-
-
-
-
-
-
 
 
 
