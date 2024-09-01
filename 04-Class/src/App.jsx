@@ -1,28 +1,87 @@
-import { useState } from "react"
-import {CustomBtn} from "./Components/CustomBtn.jsx"
+import { useEffect, useState } from "react" 
+
+import CustomBtn from "./Components/CustomBtn.jsx"
+
+
+// function App (){
+  
+//   let [ShowBtn,setShowBtn] = useState(true);
+// let [btnValue,setBtnValue] = useState('');
+
+// function UpdateValFunc(){
+//   let promptValue = prompt('Enter Updated Value');
+
+//   setBtnValue(promptValue)  ;
+
+// }
+
+// return(
+//   <>
+//   <h1>Hello UseEffect</h1>
+  
+// <button onClick={() => {setShowBtn(!ShowBtn)}}>Show or Hide</button>  
+// <button onClick={UpdateValFunc}>Update</button>  
+  
+//   {ShowBtn ? <CustomBtn btnText={btnValue}/>:false}
+  
+//   </>
+// )  
+
+
+
+// }
+
+
+
+
+
+
+// Counter UseEffect
+
+
 
 
 function App (){
   
-  let [ShowBtn,setShowBtn] = useState(true);
+  let [add,setAdd] = useState(0);
+  
+  let [subtract,setSubtract] = useState(10);
+  
+  useEffect(()=>{
+    console.log('mounted');
+    
+  },[]);
+  
+  
+  let addFunc = ()=>{
+    
+    setAdd(add + 1);
 
+  }
+let lessFunc = ()=>{
+  
+  if(subtract > 0){
+    setSubtract(subtract - 1)
+  }else if(subtract === 0){
+alert(`Number line ended don't touch this button again !!`)
+  }else{
+    return
+  }
+    
+  } 
+  
 
 return(
   <>
-  <h1>Hello UseEffect</h1>
-  
-<button onClick={() => {setShowBtn(!ShowBtn)}}>Show or Hide</button>  
-  
-  {ShowBtn ? <CustomBtn btnText ='sns'/>: <p></p>}
-  
+
+<h1>Hello Counter</h1>
+<button onClick={addFunc}>Add {add}</button>
+<button onClick={lessFunc}>Less {subtract}</button>
+
   </>
-)  
-
-
+)
 
 }
-
-
 
 
 
