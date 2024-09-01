@@ -1,12 +1,12 @@
 
 
-function CustomBtn(){
+function CustomBtn(props){
 
 return(
 
     <>
     
-    <button>I'm Custom Btn</button>
+    <button>{props.btnText}</button>
     </>
 )
 
